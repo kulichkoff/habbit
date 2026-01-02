@@ -18,9 +18,7 @@
     "target": "ES2022",
     "module": "ES2022",
     "paths": {
-      "@front/*": [
-        "./projects/front/src/*"
-      ]
+      "@front/*": ["./projects/front/src/*"]
     }
   },
   "angularCompilerOptions": {

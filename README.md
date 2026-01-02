@@ -29,5 +29,5 @@ ng generate application <project-name>
 Then, don't forget to add eslint configuration into project.
 
 ```bash
-ng g angular-eslint:add-eslint-to-project <project-name> 
+ng g angular-eslint:add-eslint-to-project <project-name>
 ```
