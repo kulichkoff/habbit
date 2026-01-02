@@ -17,7 +17,7 @@ export const appConfig: ApplicationConfig = {
       withNgxsReduxDevtoolsPlugin(),
       withNgxsLoggerPlugin(),
       withNgxsStoragePlugin({
-          keys: [SettingsState]
+        keys: [SettingsState],
       }),
     ),
   ],

@@ -1,4 +1,4 @@
-import { StorageProvider } from "./settings.model";
+import { StorageProvider } from './settings.model';
 
 const TOKEN = '[Settings]';
 
