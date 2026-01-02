@@ -3,7 +3,9 @@
   "version": 1,
   "cli": {
     "packageManager": "pnpm",
-    "schematicCollections": ["angular-eslint"]
+    "schematicCollections": [
+      "angular-eslint"
+    ]
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -24,7 +26,9 @@
             "outputPath": "dist/front",
             "index": "projects/front/src/index.html",
             "browser": "projects/front/src/main.ts",
-            "polyfills": ["zone.js"],
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "projects/front/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -33,7 +37,9 @@
                 "input": "projects/front/public"
               }
             ],
-            "styles": ["projects/front/src/styles.scss"],
+            "styles": [
+              "projects/front/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -76,25 +82,18 @@
           "builder": "@angular/build:extract-i18n"
         },
         "test": {
-          "builder": "@angular/build:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
-            "polyfills": ["zone.js", "zone.js/testing"],
-            "tsConfig": "projects/front/tsconfig.spec.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "projects/front/public"
-              }
-            ],
-            "styles": ["projects/front/src/styles.scss"],
-            "scripts": []
+            "tsConfig": "projects/front/tsconfig.spec.json"
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["projects/front/**/*.ts", "projects/front/**/*.html"],
+            "lintFilePatterns": [
+              "projects/front/**/*.ts",
+              "projects/front/**/*.html"
+            ],
             "eslintConfig": "projects/front/eslint.config.js"
           }
         }
