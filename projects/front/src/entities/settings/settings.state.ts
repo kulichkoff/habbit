@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Action, State, StateContext } from '@ngxs/store';
-import { SettingsStateModel } from './settings.model';
+import { Action, Selector, State, StateContext } from '@ngxs/store';
+import { SettingsStateModel, StorageProvider } from './settings.model';
 import { SetStorageProvider } from './settings.actions';
 
 type ThisContext = StateContext<SettingsStateModel>;
@@ -14,6 +14,11 @@ type ThisContext = StateContext<SettingsStateModel>;
 })
 export class SettingsState {
   static name = 'settings';
+
+  @Selector()
+  static getStorageProvider(state: SettingsStateModel): StorageProvider | undefined {
+    return state.storageProvider;
+  }
 
   @Action(SetStorageProvider)
   setStorageProvider(ctx: ThisContext, action: SetStorageProvider): void {
