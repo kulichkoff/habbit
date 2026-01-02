@@ -13,12 +13,12 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideStore(
-      [],
+      [SettingsState],
       withNgxsReduxDevtoolsPlugin(),
       withNgxsLoggerPlugin(),
       withNgxsStoragePlugin({
         keys: [SettingsState],
-      }),
+      })
     ),
   ],
 };
