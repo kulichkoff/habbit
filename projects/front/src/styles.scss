@@ -7,6 +7,7 @@
 
 html {
   height: 100%;
+  font-size: 16px;
   @include mat.theme(
     (
       color: (
@@ -36,4 +37,36 @@ body {
   margin: 0;
   height: 100%;
 }
-/* You can add global styles to this file, and also import other style files */
+
+// Configuring media query mixins
+// TODO Probably I may want to use SASS 7 to 1 pattern https://sass-guidelin.es/#architecture
+
+@mixin media($size) {
+  @if $size == 'mobile' {
+    @media (max-width: 599px) {
+      @content;
+    }
+  } @else if $size == 'tablet' {
+    @media (min-width: 600px) {
+      @content;
+    }
+  } @else if $size == 'tablet-landscape' {
+    @media (min-width: 900px) {
+      @content;
+    }
+  } @else if $size == 'desktop' {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  } @else if $size == 'wide' {
+    @media (min-width: 1800px) {
+      @content;
+    }
+  }
+}
+
+html {
+  @include media('mobile') {
+    font-size: 14px;
+  }
+}
