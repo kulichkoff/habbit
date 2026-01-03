@@ -1,1 +1,11 @@
-<p>select-provider-page works!</p>
+<div class="hero-container">
+  <div class="hero-content">
+    <h2 class="hero-label">Choose your storage provider</h2>
+    <div class="provider-actions">
+      <button matButton="filled" disabled matTooltip="Will be available soon">Use cloud</button>
+      <button matButton (click)="chooseProvider(StorageProvider.localStorage)">
+        Store in browser
+      </button>
+    </div>
+  </div>
+</div>
