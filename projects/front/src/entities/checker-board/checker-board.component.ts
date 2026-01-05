@@ -49,6 +49,8 @@ export class CheckerBoardComponent {
     if (check.checksCount === 0) {
       return 'var(--mat-sys-surface-container-highest)';
     }
+    // I've got these gradient levels just by opening https://cssgradient.io/
+    // with the first and latest stops in #ABC7FF and #005CBB
     const levels = ['#ABC7FF', '#80ACEE', '#518FDB', '#2674CA', '#005CBB'];
     const level = Math.ceil((check.checksCount / this.maxDayCheck()) * levels.length);
     return levels[level - 1];
