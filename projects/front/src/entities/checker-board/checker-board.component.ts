@@ -27,7 +27,7 @@ export class CheckerBoardComponent {
     checksList.length = totalChecksCount;
     for (let i = totalChecksCount - 1; i >= 0; i--) {
       const date = new Date();
-      date.setDate(now.getDate() - i);
+      date.setDate(now.getDate() - (totalChecksCount - 1 - i));
       const checksCount = latestChecks.filter(
         track => compareCalendarDate(date, track.checkDate) === 0,
       ).length;
