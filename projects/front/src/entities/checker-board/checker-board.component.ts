@@ -2,6 +2,7 @@ import { Component, computed, input } from '@angular/core';
 import { BoardModel } from '../habit-track';
 import { Check } from './model';
 import { compareCalendarDate } from '@front/shared/date';
+import { findMaxNumber } from '@front/shared/iter';
 
 @Component({
   selector: 'app-checker-board',
@@ -24,7 +25,6 @@ export class CheckerBoardComponent {
 
     const checksList: Check[] = [];
     checksList.length = totalChecksCount;
-    console.log(latestChecks);
     for (let i = totalChecksCount - 1; i >= 0; i--) {
       const date = new Date();
       date.setDate(now.getDate() - i);
@@ -38,4 +38,19 @@ export class CheckerBoardComponent {
     }
     return checksList;
   });
+
+  protected maxDayCheck = computed<number>(() => {
+    const checksCountList = this.checks().map(check => check.checksCount);
+    const max = findMaxNumber(checksCountList);
+    return max;
+  });
+
+  protected getCellColor(check: Check): string {
+    if (check.checksCount === 0) {
+      return 'var(--mat-sys-surface-container-highest)';
+    }
+    const levels = ['#ABC7FF', '#80ACEE', '#518FDB', '#2674CA', '#005CBB'];
+    const level = Math.ceil((check.checksCount / this.maxDayCheck()) * levels.length);
+    return levels[level - 1];
+  }
 }
