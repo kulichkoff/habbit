@@ -3,7 +3,13 @@ import { AsyncPipe } from '@angular/common';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatButtonModule } from '@angular/material/button';
 import { Store } from '@ngxs/store';
-import { BoardsState, CreateBoard, TrackType } from '@front/entities/habit-track';
+import {
+  BoardModel,
+  BoardsState,
+  CreateBoard,
+  SelectBoard,
+  TrackType,
+} from '@front/entities/habit-track';
 
 @Component({
   selector: 'app-boards-list',
@@ -22,8 +28,17 @@ export class BoardsListComponent {
       new CreateBoard({
         type: TrackType.SingleCheck,
         name: 'Default board',
-        trackedList: [],
+        trackedList: [
+          {
+            type: TrackType.SingleCheck,
+            checkDate: new Date(),
+          },
+        ],
       }),
     );
+  }
+
+  protected onSelectBoard(board: BoardModel) {
+    this.store.dispatch(new SelectBoard(board.id));
   }
 }

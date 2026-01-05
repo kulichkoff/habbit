@@ -1,0 +1,5 @@
+<div class="checker-board" [style.width.px]="10 * columns() + 4 * (columns() - 1)">
+  @for (check of checks(); track $index) {
+    <div class="check-cell"></div>
+  }
+</div>

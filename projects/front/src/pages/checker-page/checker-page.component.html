@@ -1,4 +1,8 @@
 <aside class="boards-list">
   <app-boards-list></app-boards-list>
 </aside>
-<main class="board-view"></main>
+<main class="board-view">
+  @if (selectedBoard$ | async; as board) {
+    <app-checker-board [board]="board"></app-checker-board>
+  }
+</main>

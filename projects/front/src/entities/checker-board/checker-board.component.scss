@@ -1,0 +1,13 @@
+.checker-board {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 4px;
+  height: calc(70px + 4px * 6);
+}
+
+.check-cell {
+  background-color: green;
+  border-radius: 2px;
+  width: 10px;
+  height: 10px;
+}

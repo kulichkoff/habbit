@@ -21,6 +21,7 @@ describe('BoardsState', () => {
       const board = {
         type: TrackType.SingleCheck,
         trackedList: [],
+        name: 'Test',
       };
       await firstValueFrom(store.dispatch(new CreateBoard(board)));
 
@@ -35,6 +36,7 @@ describe('BoardsState', () => {
       const board = {
         type: TrackType.SingleCheck,
         trackedList: [],
+        name: 'Test',
       };
       await firstValueFrom(store.dispatch(new CreateBoard(board)));
       await firstValueFrom(store.dispatch(new CreateBoard(board)));
