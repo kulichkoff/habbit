@@ -3,6 +3,7 @@ import { TrackUnitModel } from './track-unit.model';
 
 export interface BoardModel {
   id: number;
+  name: string;
   type: TrackType;
   trackedList: TrackUnitModel[];
 }

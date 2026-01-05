@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.boards-list {
+  flex: 0 0 30rem;
+  margin-top: 10rem;
+  height: calc(100% - 15rem);
+
+  app-boards-list {
+    height: 100%;
+  }
+}
+
+.board-view {
+  flex: 1 1;
+}

@@ -1,0 +1,44 @@
+:host {
+  display: flex;
+  flex-flow: column nowrap;
+  padding-inline: 1.3rem;
+}
+
+.create-new-btn {
+  margin-bottom: 1.2rem;
+  width: fit-content;
+}
+
+.scroll-viewport {
+  flex: 1 1;
+}
+
+.board {
+  height: 100px;
+  width: 400px;
+  padding: 0.8rem 1rem;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  background-color: var(--mat-sys-surface-container-highest);
+  border-radius: 8px;
+  box-sizing: border-box;
+  box-shadow: var(--shadow-md);
+
+  & + & {
+    margin-top: 12.8px;
+  }
+
+  .card-header,
+  .card-footer {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .card-title {
+    font-weight: 600;
+  }
+}
