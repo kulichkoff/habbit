@@ -6,7 +6,7 @@ import { withNgxsStoragePlugin } from '@ngxs/storage-plugin';
 import { provideStore } from '@ngxs/store';
 
 import { SettingsState } from '@front/entities/settings';
-import { BoardsState } from '@front/entities/habit-track';
+import { BoardsState, BoardsStateModel } from '@front/entities/habit-track';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
@@ -19,6 +19,21 @@ export const appConfig: ApplicationConfig = {
       withNgxsLoggerPlugin(),
       withNgxsStoragePlugin({
         keys: [SettingsState, BoardsState],
+        afterDeserialize: (obj, key) => {
+          if (key === BoardsState.name) {
+            // TODO move to separate file
+            // TODO think about performance
+            const state: BoardsStateModel = obj;
+            const boards = Object.values(state.boards);
+            for (const board of boards) {
+              for (const tracks of board.trackedList) {
+                tracks.checkDate = new Date(tracks.checkDate as unknown as string);
+              }
+            }
+            return obj;
+          }
+          return obj;
+        },
       }),
     ),
   ],
