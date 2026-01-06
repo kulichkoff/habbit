@@ -19,6 +19,7 @@ export class BoardsListComponent {
   private readonly createBoardService = inject(CreateBoardService);
 
   boards$ = this.store.select(BoardsState.getBoards);
+  selectedBoard = this.store.selectSignal(BoardsState.getSelectedBoard);
 
   protected onCreateNewBtn() {
     this.createBoardService

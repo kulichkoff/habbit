@@ -59,6 +59,13 @@
     }
   }
 
+  &.selected {
+    .state {
+      background-color: var(--mat-sys-surface-container-highest);
+      opacity: 0.3;
+    }
+  }
+
   & + & {
     margin-top: 12.8px;
   }

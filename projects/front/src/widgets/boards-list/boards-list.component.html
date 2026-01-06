@@ -4,10 +4,10 @@
   <button
     *cdkVirtualFor="let board of boards$ | async"
     class="board"
+    [class.selected]="selectedBoard()?.id === board.id"
     [style.background-color]="board.color ? `var(--${board.color})` : undefined"
     (click)="onSelectBoard(board)"
   >
-    <div class="state"></div>
     <div class="board-card-content">
       <div class="card-header">
         <span class="card-title">{{ board.name }}</span>
@@ -19,5 +19,6 @@
         <div>Check in</div>
       </div>
     </div>
+    <div class="state"></div>
   </button>
 </cdk-virtual-scroll-viewport>
