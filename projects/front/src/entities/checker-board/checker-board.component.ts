@@ -1,4 +1,4 @@
-import { Component, computed, input } from '@angular/core';
+import { Component, computed, input, numberAttribute } from '@angular/core';
 import { BoardModel } from '../habit-track';
 import { Check } from './model';
 import { compareCalendarDate } from '@front/shared/date';
@@ -12,7 +12,7 @@ import { findMaxNumber } from '@front/shared/iter';
 })
 export class CheckerBoardComponent {
   board = input.required<BoardModel>();
-  columns = input(14);
+  columns = input(14, { transform: numberAttribute });
 
   protected checks = computed<Check[]>(() => {
     // It is expected to have Board.trackedList sorted by date

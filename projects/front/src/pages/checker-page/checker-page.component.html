@@ -3,6 +3,7 @@
 </aside>
 <main class="board-view">
   @if (selectedBoard$ | async; as board) {
-    <app-checker-board [board]="board"></app-checker-board>
+    <h2 class="board-title">{{ board.name }}</h2>
+    <app-checker-board columns="20" [board]="board"></app-checker-board>
   }
 </main>
