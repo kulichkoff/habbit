@@ -25,7 +25,7 @@ export class BoardsState {
 
   @Selector()
   static getSelectedBoard(state: BoardsStateModel): BoardModel | undefined {
-    if (!state.selectedBoardId) {
+    if (state.selectedBoardId === undefined) {
       return;
     }
     return state.boards[state.selectedBoardId];
