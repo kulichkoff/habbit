@@ -1,6 +1,6 @@
 <button class="create-new-btn" matButton="filled" (click)="onCreateNewBtn()">Create new</button>
 
-<cdk-virtual-scroll-viewport appendOnly itemSize="112.8" class="scroll-viewport">
+<cdk-virtual-scroll-viewport appendOnly itemSize="190.8" class="scroll-viewport">
   <button
     *cdkVirtualFor="let board of boards$ | async"
     class="board"
@@ -11,6 +11,9 @@
     <div class="board-card-content">
       <div class="card-header">
         <span class="card-title">{{ board.name }}</span>
+      </div>
+      <div class="card-content">
+        <app-checker-board [board]="board" columns="15"></app-checker-board>
       </div>
       <div class="card-footer">
         <div>Check in</div>

@@ -17,9 +17,9 @@
 
 .board {
   position: relative;
-  height: 100px;
+  height: 178px;
   width: 400px;
-  background-color: var(--mat-sys-surface-container-highest);
+  background-color: var(--mat-sys-surface-container);
   border-radius: 8px;
   cursor: pointer;
   border: none;
@@ -42,7 +42,7 @@
     left: 0;
     right: 0;
     top: 0;
-    height: 100px;
+    height: 100%;
     background-color: #fff;
     opacity: 0;
   }

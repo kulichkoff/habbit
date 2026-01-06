@@ -6,10 +6,11 @@ import { Store } from '@ngxs/store';
 import { BoardModel, BoardsState, CreateBoard, SelectBoard } from '@front/entities/habit-track';
 import { CreateBoardService } from '@front/features/create-board';
 import { take } from 'rxjs';
+import { CheckerBoardComponent } from '@front/entities/checker-board';
 
 @Component({
   selector: 'app-boards-list',
-  imports: [AsyncPipe, ScrollingModule, MatButtonModule],
+  imports: [AsyncPipe, ScrollingModule, MatButtonModule, CheckerBoardComponent],
   templateUrl: './boards-list.component.html',
   styleUrl: './boards-list.component.scss',
 })
