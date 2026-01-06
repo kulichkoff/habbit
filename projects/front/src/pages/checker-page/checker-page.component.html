@@ -1,8 +1,15 @@
-<aside class="boards-list">
+<mat-sidenav-container>
+  <mat-sidenav opened mode="side" class="boards-list">
+    <app-boards-list></app-boards-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <main class="board-view">
+      @if (selectedBoard$ | async; as board) {
+        <app-habit-dashboard [board]="board"></app-habit-dashboard>
+      }
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<!-- <aside class="boards-list">
   <app-boards-list></app-boards-list>
-</aside>
-<main class="board-view">
-  @if (selectedBoard$ | async; as board) {
-    <app-habit-dashboard [board]="board"></app-habit-dashboard>
-  }
-</main>
+</aside> -->

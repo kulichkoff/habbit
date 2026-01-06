@@ -21,7 +21,7 @@
   position: relative;
   height: 178px;
   width: 300px;
-  background-color: var(--mat-sys-surface-container);
+  background-color: var(--mat-sys-surface-container-lowest);
   border-radius: 8px;
   cursor: pointer;
   border: none;
@@ -45,7 +45,7 @@
     right: 0;
     top: 0;
     height: 100%;
-    background-color: #fff;
+    background-color: var(--mat-sys-surface-container-highest);
     opacity: 0;
   }
 
@@ -64,7 +64,6 @@
   &.selected {
     box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
     .state {
-      background-color: var(--mat-sys-surface-container-highest);
       opacity: 0.3;
     }
   }

@@ -1,15 +1,17 @@
 :host {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: flex-start;
-  justify-content: space-between;
+  display: block;
   height: 100vh;
 }
 
+mat-sidenav-container {
+  height: 100%;
+}
+
 .boards-list {
-  flex: 0 0 30rem;
-  margin-top: 10rem;
-  height: calc(100% - 15rem);
+  padding-top: 0.8rem;
+  width: 400px;
+  height: 100%;
+  background-color: var(--mat-sys-surface-container-low);
 
   app-boards-list {
     height: 100%;
