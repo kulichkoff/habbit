@@ -21,7 +21,7 @@ export class BoardsState {
 
   @Selector()
   static getBoards(state: BoardsStateModel): BoardModel[] {
-    return Object.values(state.boards);
+    return Object.values(state.boards).filter(b => !!b);
   }
 
   @Selector()
@@ -85,6 +85,9 @@ export class BoardsState {
       throw new ErrorNoBoard(action.boardId);
     }
 
+    if (ctx.getState().selectedBoardId === action.boardId) {
+      ctx.patchState({ selectedBoardId: undefined });
+    }
     ctx.setState(
       patch({
         boards: patch({
