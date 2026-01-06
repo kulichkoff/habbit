@@ -13,13 +13,14 @@
 
 .scroll-viewport {
   flex: 1 1;
+  width: 342px;
 }
 
 .board {
   margin-left: 0.5rem;
   position: relative;
   height: 178px;
-  width: 400px;
+  width: 300px;
   background-color: var(--mat-sys-surface-container);
   border-radius: 8px;
   cursor: pointer;
