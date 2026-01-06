@@ -7,9 +7,9 @@
       @if (selectedBoard$ | async; as board) {
         <app-habit-dashboard [board]="board"></app-habit-dashboard>
       }
+      @if (!havingBoards()) {
+        <app-empty-content></app-empty-content>
+      }
     </main>
   </mat-sidenav-content>
 </mat-sidenav-container>
-<!-- <aside class="boards-list">
-  <app-boards-list></app-boards-list>
-</aside> -->
