@@ -9,7 +9,7 @@ import {
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSelectModule } from '@angular/material/select';
 import { MatInput } from '@angular/material/input';
 import { TrackType } from '@front/entities/habit-track';
 import { COLORS } from '../../config';
@@ -20,7 +20,7 @@ import { COLORS } from '../../config';
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatAutocompleteModule,
+    MatSelectModule,
     MatInput,
     MatDialogModule,
     MatButtonModule,

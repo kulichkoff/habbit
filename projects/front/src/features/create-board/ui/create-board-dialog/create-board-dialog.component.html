@@ -11,8 +11,7 @@
 
     <mat-form-field>
       <mat-label>Display color</mat-label>
-      <input matInput [matAutocomplete]="auto" formControlName="color" />
-      <mat-autocomplete #auto="matAutocomplete">
+      <mat-select formControlName="color">
         @for (color of COLORS; track color.value) {
           <mat-option [value]="color.value">
             <div class="color-option">
@@ -21,7 +20,7 @@
             </div>
           </mat-option>
         }
-      </mat-autocomplete>
+      </mat-select>
     </mat-form-field>
   </form>
 </mat-dialog-content>
