@@ -1,13 +1,13 @@
 import { Component, inject } from '@angular/core';
-import { BoardsListComponent } from '@front/widgets/boards-list';
-import { CheckerBoardComponent } from '@front/entities/checker-board';
 import { Store } from '@ngxs/store';
-import { BoardsState } from '@front/entities/habit-track';
 import { AsyncPipe } from '@angular/common';
+import { BoardsState } from '@front/entities/habit-track';
+import { HabitDashboardComponent } from '@front/widgets/habit-dashboard';
+import { BoardsListComponent } from '@front/widgets/boards-list';
 
 @Component({
   selector: 'app-checker-page',
-  imports: [AsyncPipe, BoardsListComponent, CheckerBoardComponent],
+  imports: [AsyncPipe, BoardsListComponent, HabitDashboardComponent],
   templateUrl: './checker-page.component.html',
   styleUrl: './checker-page.component.scss',
 })
