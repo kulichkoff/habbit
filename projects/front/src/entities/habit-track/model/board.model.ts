@@ -6,6 +6,7 @@ export interface BoardModel {
   name: string;
   type: TrackType;
   trackedList: TrackUnitModel[];
+  color?: string;
 }
 
 export interface BoardsStateModel {

@@ -4,6 +4,7 @@
   <button
     *cdkVirtualFor="let board of boards$ | async"
     class="board"
+    [style.background-color]="board.color ? `var(--${board.color})` : undefined"
     (click)="onSelectBoard(board)"
   >
     <div class="state"></div>
