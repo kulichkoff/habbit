@@ -16,6 +16,7 @@
 }
 
 .board {
+  margin-left: 0.5rem;
   position: relative;
   height: 178px;
   width: 400px;
@@ -60,6 +61,7 @@
   }
 
   &.selected {
+    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
     .state {
       background-color: var(--mat-sys-surface-container-highest);
       opacity: 0.3;
