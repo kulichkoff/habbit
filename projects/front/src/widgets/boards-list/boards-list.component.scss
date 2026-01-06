@@ -33,6 +33,10 @@
     transform: scale(1.05) translate(10px, 0);
   }
 
+  &:active {
+    transform: scale(1.01) translate(2px, 0);
+  }
+
   & + & {
     margin-top: 12.8px;
   }
