@@ -9,9 +9,8 @@ describe('CheckerBoardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CheckerBoardComponent]
-    })
-    .compileComponents();
+      imports: [CheckerBoardComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CheckerBoardComponent);
     component = fixture.componentInstance;

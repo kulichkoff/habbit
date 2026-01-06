@@ -38,6 +38,7 @@ export class BoardsState {
         boards: patch({
           [id]: {
             ...action.board,
+            trackedList: [],
             id,
           },
         }),

@@ -5,7 +5,7 @@ const TOKEN = '[Boards]';
 export class CreateBoard {
   static readonly type = `${TOKEN} Create board`;
 
-  constructor(public readonly board: Omit<BoardModel, 'id'>) {}
+  constructor(public readonly board: Omit<BoardModel, 'id' | 'trackedList'>) {}
 }
 
 export class SelectBoard {

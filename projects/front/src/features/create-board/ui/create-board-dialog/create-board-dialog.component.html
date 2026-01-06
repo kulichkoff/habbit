@@ -1,0 +1,18 @@
+<h2 mat-dialog-title>Create new board</h2>
+<mat-dialog-content>
+  <form [formGroup]="createBoardForm">
+    <mat-form-field>
+      <mat-label>Enter habit board name</mat-label>
+      <input matInput placeholder="Daily push-ups" formControlName="name" />
+      @if (createBoardForm.controls.name.invalid) {
+        <mat-error>{{ getErrorMessage(createBoardForm.controls.name) }}</mat-error>
+      }
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button matButton mat-dialog-close>Cancel</button>
+  <button matButton [disabled]="createBoardForm.invalid" [mat-dialog-close]="createBoardForm.value">
+    Save
+  </button>
+</mat-dialog-actions>
