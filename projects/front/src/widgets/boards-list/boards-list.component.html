@@ -6,11 +6,14 @@
     class="board"
     (click)="onSelectBoard(board)"
   >
-    <div class="card-header">
-      <span class="card-title">{{ board.name }}</span>
-    </div>
-    <div class="card-footer">
-      <div>Check in</div>
+    <div class="state"></div>
+    <div class="board-card-content">
+      <div class="card-header">
+        <span class="card-title">{{ board.name }}</span>
+      </div>
+      <div class="card-footer">
+        <div>Check in</div>
+      </div>
     </div>
   </button>
 </cdk-virtual-scroll-viewport>
