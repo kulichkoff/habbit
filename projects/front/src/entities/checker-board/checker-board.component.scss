@@ -1,3 +1,21 @@
+.checker {
+  display: flex;
+  flex-flow:  row nowrap;
+  gap: 4px;
+}
+
+.checker-header {
+  font-size: 10px;
+  line-height: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 4px;
+
+  .cell {
+    flex: 0 0 10px;
+  }
+}
+
 .checker-board {
   display: flex;
   flex-flow: column wrap;
