@@ -22,3 +22,9 @@ export class CheckIn {
     public readonly checkDate: Date,
   ) {}
 }
+
+export class DeleteBoard {
+  static readonly type = `${TOKEN} Delete board`;
+
+  constructor(public readonly boardId: number) {}
+}

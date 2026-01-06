@@ -19,7 +19,6 @@
 
 .board {
   margin-left: 0.5rem;
-  position: relative;
   height: 178px;
   width: 300px;
   background-color: var(--mat-sys-surface-container-lowest);
@@ -41,33 +40,29 @@
     height: 100%;
   }
 
-  .state {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 100%;
-    background-color: var(--mat-sys-surface-container-highest);
-    opacity: 0;
-  }
-
   &:hover {
-    .state {
-      opacity: 0.08;
-    }
+    background-color: color-mix(
+      in srgb,
+      var(--mat-sys-surface-container-lowest),
+      var(--mat-sys-surface-container-highest) 8%
+    );
   }
 
   &:active {
-    .state {
-      opacity: 0.1;
-    }
+    background-color: color-mix(
+      in srgb,
+      var(--mat-sys-surface-container-lowest),
+      var(--mat-sys-surface-container-highest) 10%
+    );
   }
 
   &.selected {
     box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
-    .state {
-      opacity: 0.3;
-    }
+    background-color: color-mix(
+      in srgb,
+      var(--mat-sys-surface-container-lowest),
+      var(--mat-sys-surface-container-highest) 36%
+    );
   }
 
   .card-header,
@@ -76,6 +71,7 @@
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
   }
 
   .card-title {
