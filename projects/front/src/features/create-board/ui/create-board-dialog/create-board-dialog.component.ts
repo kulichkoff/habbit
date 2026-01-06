@@ -9,8 +9,10 @@ import {
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInput } from '@angular/material/input';
 import { TrackType } from '@front/entities/habit-track';
+import { COLORS } from '../../config';
 
 @Component({
   selector: 'app-create-board-dialog',
@@ -18,6 +20,7 @@ import { TrackType } from '@front/entities/habit-track';
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
+    MatAutocompleteModule,
     MatInput,
     MatDialogModule,
     MatButtonModule,
@@ -29,9 +32,12 @@ import { TrackType } from '@front/entities/habit-track';
 export class CreateBoardDialogComponent {
   private readonly fb = inject(FormBuilder);
 
+  protected COLORS = COLORS;
+
   protected createBoardForm = this.fb.nonNullable.group({
     name: ['', Validators.required],
     type: TrackType.SingleCheck,
+    color: '',
   });
 
   protected getErrorMessage(control: AbstractControl): string | undefined {

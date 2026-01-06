@@ -8,6 +8,21 @@
         <mat-error>{{ getErrorMessage(createBoardForm.controls.name) }}</mat-error>
       }
     </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Display color</mat-label>
+      <input matInput [matAutocomplete]="auto" formControlName="color" />
+      <mat-autocomplete #auto="matAutocomplete">
+        @for (color of COLORS; track color.value) {
+          <mat-option [value]="color.value">
+            <div class="color-option">
+              <div class="color-display" [style.background-color]="`var(--${color.value})`"></div>
+              <span>{{ color.label }}</span>
+            </div>
+          </mat-option>
+        }
+      </mat-autocomplete>
+    </mat-form-field>
   </form>
 </mat-dialog-content>
 <mat-dialog-actions>
