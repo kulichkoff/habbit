@@ -8,6 +8,7 @@ import { provideStore } from '@ngxs/store';
 import { SettingsState } from '@front/entities/settings';
 import { BoardsState, BoardsStateModel } from '@front/entities/habit-track';
 import { routes } from './app.routes';
+import { environment } from '@front/environments';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,7 +17,9 @@ export const appConfig: ApplicationConfig = {
     provideStore(
       [SettingsState, BoardsState],
       withNgxsReduxDevtoolsPlugin(),
-      withNgxsLoggerPlugin(),
+      withNgxsLoggerPlugin({
+        disabled: environment.production,
+      }),
       withNgxsStoragePlugin({
         keys: [SettingsState, BoardsState],
         afterDeserialize: (obj, key) => {
