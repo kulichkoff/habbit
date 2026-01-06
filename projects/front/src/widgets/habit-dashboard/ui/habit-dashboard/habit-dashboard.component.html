@@ -1,2 +1,7 @@
 <h2 class="board-title">{{ board().name }}</h2>
 <app-checker-board columns="20" [board]="board()"></app-checker-board>
+<div class="habit-check-actions">
+  <button matButton matTooltip="Check in today" (click)="checkInToday()">
+    Check in <mat-icon>check</mat-icon>
+  </button>
+</div>

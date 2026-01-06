@@ -13,3 +13,12 @@ export class SelectBoard {
 
   constructor(public readonly boardId: number) {}
 }
+
+export class CheckIn {
+  static readonly type = `${TOKEN} Check in`;
+
+  constructor(
+    public readonly boardId: number,
+    public readonly checkDate: Date,
+  ) {}
+}

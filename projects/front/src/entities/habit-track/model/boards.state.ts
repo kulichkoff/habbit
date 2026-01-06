@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { BoardModel, BoardsStateModel } from './board.model';
-import { CreateBoard, SelectBoard } from './board.actions';
+import { CheckIn, CreateBoard, SelectBoard } from './board.actions';
 import { patch } from '@ngxs/store/operators';
+import { TrackUnitModel } from './track-unit.model';
+import { insertAndSortByCheckDate } from '../lib';
 
 type ThisContext = StateContext<BoardsStateModel>;
 
@@ -51,5 +53,27 @@ export class BoardsState {
     ctx.patchState({
       selectedBoardId: action.boardId,
     });
+  }
+
+  @Action(CheckIn)
+  checkIn(ctx: ThisContext, action: CheckIn): void {
+    const board = ctx.getState().boards[action.boardId];
+    if (!board) {
+      throw new Error('No board with id ' + action.boardId);
+    }
+    const newCheck: TrackUnitModel = {
+      type: board.type,
+      checkDate: action.checkDate,
+    };
+
+    ctx.setState(
+      patch({
+        boards: patch({
+          [board.id]: patch({
+            trackedList: insertAndSortByCheckDate(newCheck),
+          }),
+        }),
+      }),
+    );
   }
 }
