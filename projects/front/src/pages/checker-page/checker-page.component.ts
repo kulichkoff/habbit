@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Store } from '@ngxs/store';
 import { AsyncPipe } from '@angular/common';
@@ -8,12 +8,16 @@ import { HabitDashboardComponent } from '@front/widgets/habit-dashboard';
 import { BoardsListComponent } from '@front/widgets/boards-list';
 import { map } from 'rxjs';
 import { EmptyContentComponent } from '@front/shared/ui';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-checker-page',
   imports: [
     AsyncPipe,
     MatSidenavModule,
+    MatIconModule,
+    MatButtonModule,
     BoardsListComponent,
     HabitDashboardComponent,
     EmptyContentComponent,
@@ -28,4 +32,10 @@ export class CheckerPageComponent {
   protected havingBoards = toSignal(
     this.store.select(BoardsState.getBoards).pipe(map(boards => boards?.length > 0)),
   );
+
+  protected isSideNavOpen = signal(true);
+
+  protected toggleSideNav() {
+    this.isSideNavOpen.update(open => !open);
+  }
 }

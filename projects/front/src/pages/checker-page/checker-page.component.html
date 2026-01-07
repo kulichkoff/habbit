@@ -1,5 +1,8 @@
 <mat-sidenav-container>
-  <mat-sidenav opened mode="side" class="boards-list">
+  <mat-sidenav [opened]="isSideNavOpen()" mode="side" class="boards-list">
+    <button matIconButton (click)="toggleSideNav()" class="sidenav-toggler">
+      <mat-icon>keyboard_double_arrow_right</mat-icon>
+    </button>
     <app-boards-list></app-boards-list>
   </mat-sidenav>
   <mat-sidenav-content>

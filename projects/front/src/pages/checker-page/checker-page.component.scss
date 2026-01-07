@@ -7,6 +7,22 @@ mat-sidenav-container {
   height: 100%;
 }
 
+::ng-deep {
+  .mat-drawer:not(.mat-drawer-opened) {
+    visibility: unset !important;
+    box-shadow: unset !important;
+    transform: translate(calc(-100% + 50px), 0);
+
+    .mat-drawer-inner-container {
+      display: unset !important;
+    }
+
+    .sidenav-toggler {
+      right: 6px;
+    }
+  }
+}
+
 .boards-list {
   padding-top: 0.8rem;
   width: 400px;
@@ -16,6 +32,12 @@ mat-sidenav-container {
   app-boards-list {
     height: 100%;
   }
+}
+
+.sidenav-toggler {
+  position: absolute;
+  right: 12px;
+  top: 12px;
 }
 
 .board-view {
