@@ -3,6 +3,7 @@
 // components according to the Material 3 design spec.
 // Learn more about theming and how to use it for your application's
 // custom components at https://material.angular.dev/guide/theming
+@use 'styles/abstracts/_mixins';
 @use '@angular/material' as mat;
 
 html {
@@ -48,35 +49,10 @@ body {
   height: 100%;
 }
 
-// Configuring media query mixins
 // TODO Probably I may want to use SASS 7 to 1 pattern https://sass-guidelin.es/#architecture
 
-@mixin media($size) {
-  @if $size == 'mobile' {
-    @media (max-width: 599px) {
-      @content;
-    }
-  } @else if $size == 'tablet' {
-    @media (min-width: 600px) {
-      @content;
-    }
-  } @else if $size == 'tablet-landscape' {
-    @media (min-width: 900px) {
-      @content;
-    }
-  } @else if $size == 'desktop' {
-    @media (min-width: 1200px) {
-      @content;
-    }
-  } @else if $size == 'wide' {
-    @media (min-width: 1800px) {
-      @content;
-    }
-  }
-}
-
 html {
-  @include media('mobile') {
+  @include mixins.media('mobile') {
     font-size: 14px;
   }
 }

@@ -5,7 +5,7 @@
     </button>
     <app-boards-list></app-boards-list>
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content class="sidenav-content" [class.sidenav-closed]="!isSideNavOpen()">
     <main class="board-view">
       @if (selectedBoard$ | async; as board) {
         <app-habit-dashboard [board]="board"></app-habit-dashboard>

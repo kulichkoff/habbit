@@ -1,3 +1,5 @@
+@use '/styles/abstracts/_mixins';
+
 :host {
   display: block;
   height: 100vh;
@@ -8,17 +10,20 @@ mat-sidenav-container {
 }
 
 ::ng-deep {
-  .mat-drawer:not(.mat-drawer-opened) {
-    visibility: unset !important;
-    box-shadow: unset !important;
-    transform: translate(calc(-100% + 50px), 0);
+  @include mixins.media('tablet') {
+    .mat-drawer:not(.mat-drawer-opened) {
+      visibility: unset !important;
+      box-shadow: unset !important;
 
-    .mat-drawer-inner-container {
-      display: unset !important;
-    }
+      transform: translate(calc(-100% + 50px), 0);
 
-    .sidenav-toggler {
-      right: 6px;
+      .mat-drawer-inner-container {
+        display: unset !important;
+      }
+
+      .sidenav-toggler {
+        right: 6px;
+      }
     }
   }
 }
@@ -28,6 +33,10 @@ mat-sidenav-container {
   width: 400px;
   height: 100%;
   background-color: var(--mat-sys-surface-container-low);
+
+  @include mixins.media('mobile') {
+    width: 100vw;
+  }
 
   app-boards-list {
     height: 100%;
@@ -40,9 +49,24 @@ mat-sidenav-container {
   top: 12px;
 }
 
+.sidenav-content {
+  @include mixins.media('tablet') {
+    &.sidenav-closed {
+      margin-left: 50px;
+    }
+  }
+}
+
 .board-view {
   padding-top: 6rem;
   box-sizing: border-box;
   max-width: 500px;
   margin: 0 auto;
+
+  @include mixins.media('mobile') {
+    margin: 0 24px;
+  }
+  @include mixins.media('tablet') {
+    width: 80%;
+  }
 }
