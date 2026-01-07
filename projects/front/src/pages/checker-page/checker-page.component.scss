@@ -1,3 +1,5 @@
+@use '/styles/abstracts/_mixins';
+
 :host {
   display: block;
   height: 100vh;
@@ -7,14 +9,52 @@ mat-sidenav-container {
   height: 100%;
 }
 
+::ng-deep {
+  @include mixins.media('tablet') {
+    .mat-drawer:not(.mat-drawer-opened) {
+      visibility: unset !important;
+      box-shadow: unset !important;
+
+      transform: translate(calc(-100% + 50px), 0);
+
+      .mat-drawer-inner-container {
+        display: unset !important;
+      }
+
+      .sidenav-toggler {
+        transform: rotate(180deg);
+        right: 6px;
+      }
+    }
+  }
+}
+
 .boards-list {
   padding-top: 0.8rem;
   width: 400px;
   height: 100%;
   background-color: var(--mat-sys-surface-container-low);
 
+  @include mixins.media('mobile') {
+    width: 100vw;
+  }
+
   app-boards-list {
     height: 100%;
+  }
+}
+
+.sidenav-toggler {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+}
+
+.sidenav-content {
+  @include mixins.media('tablet') {
+    &.sidenav-closed {
+      margin-left: 50px;
+    }
   }
 }
 
@@ -23,4 +63,15 @@ mat-sidenav-container {
   box-sizing: border-box;
   max-width: 500px;
   margin: 0 auto;
+
+  @include mixins.media('mobile') {
+    margin: 0 24px;
+  }
+  @include mixins.media('tablet') {
+    width: 80%;
+  }
+  @include mixins.media('tablet-landscape') {
+    width: auto;
+    max-width: 650px;
+  }
 }

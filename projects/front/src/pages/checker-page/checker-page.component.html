@@ -1,8 +1,23 @@
 <mat-sidenav-container>
-  <mat-sidenav opened mode="side" class="boards-list">
+  <mat-sidenav
+    [opened]="isSideNavOpen()"
+    [mode]="(isMobile$ | async) ? 'over' : 'side'"
+    class="boards-list"
+  >
+    <button matIconButton (click)="toggleSideNav()" class="sidenav-toggler">
+      <mat-icon>keyboard_double_arrow_left</mat-icon>
+    </button>
     <app-boards-list></app-boards-list>
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content class="sidenav-content" [class.sidenav-closed]="!isSideNavOpen()">
+    @if (isMobile$ | async) {
+      <mat-toolbar>
+        <button matIconButton (click)="toggleSideNav()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </mat-toolbar>
+    }
+
     <main class="board-view">
       @if (selectedBoard$ | async; as board) {
         <app-habit-dashboard [board]="board"></app-habit-dashboard>
