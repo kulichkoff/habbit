@@ -49,8 +49,6 @@ body {
   height: 100%;
 }
 
-// TODO Probably I may want to use SASS 7 to 1 pattern https://sass-guidelin.es/#architecture
-
 html {
   @include mixins.media('mobile') {
     font-size: 14px;
