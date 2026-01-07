@@ -70,4 +70,8 @@ mat-sidenav-container {
   @include mixins.media('tablet') {
     width: 80%;
   }
+  @include mixins.media('tablet-landscape') {
+    width: auto;
+    max-width: 650px;
+  }
 }
